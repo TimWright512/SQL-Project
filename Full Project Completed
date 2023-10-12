@@ -30,4 +30,23 @@ GROUP BY
     cabs.company_name 
 
 
-3.For November 1-7, 2017, the most popular taxi companies were Flash Cab and Taxi Affiliation Services. Find the number of rides for these two companies and name the resulting variable trips_amount. Join the rides for all other companies in the group "Other." Group the data by taxi company names. Name the field with taxi company names company. Sort the result in descending order by trips_amount.
+3.For November 1-7, 2017, the most popular taxi companies were Flash Cab and Taxi Affiliation Services. Find the number of rides for these two companies and name the resulting variable trips_amount. 
+Join the rides for all other companies in the group "Other." Group the data by taxi company names. Name the field with taxi company names company. Sort the result in descending order by trips_amount.
+
+SELECT
+    CASE 
+    WHEN cabs.company_name = 'Flash Cab' THEN 'Flash Cab'
+    WHEN cabs.company_name = 'Taxi Affiliation Services' THEN 'Taxi Affiliation Services'
+    ELSE 'Other'
+        END AS company,
+        COUNT(trips.trip_id) as trips_amount
+FROM
+    cabs
+INNER JOIN 
+    trips ON trips.cab_id = cabs.cab_id
+WHERE
+    CAST(trips.start_ts as date) BETWEEN '2017-11-01' AND '2017-11-07'
+GROUP BY
+    company
+ORDER BY
+    trips_amount DESC
