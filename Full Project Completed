@@ -50,3 +50,16 @@ GROUP BY
     company
 ORDER BY
     trips_amount DESC
+
+
+4.Retrieve the identifiers of the O'Hare and Loop neighborhoods  from the neighborhoods table.
+
+SELECT
+    neighborhood_id,
+    name
+FROM
+    neighborhoods
+WHERE
+    name = 'Loop'
+    OR
+    name like '%Hare'
