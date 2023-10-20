@@ -27,8 +27,5 @@ temperature: temperature when the record was taken
 description: brief description of weather conditions, e.g. "light rain" or "scattered clouds"
 Table scheme
 
-image
-Note: there isn't a direct connection between the tables trips and weather_records in the database. But you can still use JOIN and link them using the time the ride started (trips.start_ts) and the time the weather record was taken (weather_records.ts). 
-You've already done the first part of the project: you wrote a code to parse the weather data from a website. Now you'll do the second and third parts:
 Tasks 1-4: Exploratory data analysis
 Tasks 5-7: Investigate whether the duration of rides from the the Loop to O'Hare International Airport changes on rainy Saturdays
